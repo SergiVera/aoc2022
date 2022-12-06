@@ -9,3 +9,4 @@ Table with the results per day:
 |  3  | 8233 | 2821 |
 |  4  | 471 | 888 |
 |  5  | TLFGBZHCN | QRQFHFWCL |
+|  6  | 1929 | 3298 |
