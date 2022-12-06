@@ -4,6 +4,8 @@ import utils.StaticUtils;
 import java.io.File;
 import java.util.*;
 
+import static utils.StaticUtils.BASE_RESOURCES_PATH;
+
 public class Day5 {
     private final List<String> input;
     private Crane crane;
@@ -102,7 +104,7 @@ public class Day5 {
     }
 
     public static void main(String[] args) {
-        Day5 day5 = new Day5(new File("/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/src/main/resources/Day5.txt"));
+        Day5 day5 = new Day5(new File(BASE_RESOURCES_PATH + "Day5.txt"));
         System.out.println(day5.runFirstPart());
         day5.initialize();
         System.out.println(day5.runSecondPart());

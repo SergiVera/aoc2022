@@ -7,6 +7,7 @@ import java.util.List;
 import static types.RockPaperScissorsEnum.PAPER;
 import static types.RockPaperScissorsEnum.ROCK;
 import static types.RockPaperScissorsEnum.SCISSORS;
+import static utils.StaticUtils.BASE_RESOURCES_PATH;
 
 public class Day2 {
 
@@ -94,7 +95,7 @@ public class Day2 {
     }
 
     public static void main(String[] args) {
-        Day2 day2 = new Day2(new File("/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/src/main/resources/Day2.txt"));
+        Day2 day2 = new Day2(new File(BASE_RESOURCES_PATH + "Day2.txt"));
         System.out.println(day2.runFirstPart());
         day2.initialize();
         System.out.println(day2.runSecondPart());

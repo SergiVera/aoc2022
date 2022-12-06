@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StaticUtils {
+    public static final String BASE_RESOURCES_PATH = "/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/aoc2022/src/main/resources/";
+
     public static List<String> inputFileToStringList(File inputFile) {
         List<String> inputList = new ArrayList<>();
         try {

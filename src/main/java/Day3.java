@@ -3,6 +3,8 @@ import utils.StaticUtils;
 import java.io.File;
 import java.util.List;
 
+import static utils.StaticUtils.BASE_RESOURCES_PATH;
+
 public class Day3 {
 
     private final String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -62,7 +64,7 @@ public class Day3 {
     }
 
     public static void main(String[] args) {
-        Day3 day3 = new Day3(new File("/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/src/main/resources/Day3.txt"));
+        Day3 day3 = new Day3(new File(BASE_RESOURCES_PATH + "Day3.txt"));
         System.out.println(day3.runFirstPart());
         day3.initialize();
         System.out.println(day3.runSecondPart());

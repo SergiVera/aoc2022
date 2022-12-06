@@ -1,41 +1,68 @@
 import utils.StaticUtils;
 
 import java.io.File;
-import java.util.List;
+import java.util.*;
+
+import static utils.StaticUtils.BASE_RESOURCES_PATH;
 
 public class Day6 {
-    private final List<String> input;
-    private int sumOfPriorities;
+    private final char[] dataStreamBuffer;
+    private Queue<Character> packet;
+    private Queue<Character> message;
+    private int startOfPacket;
+    private int startOfMessage;
 
     private Day6(File file) {
-        input = StaticUtils.inputFileToStringList(file);
-        sumOfPriorities = 0;
-    }
-
-    private void initialize() {
-        sumOfPriorities = 0;
+        dataStreamBuffer = StaticUtils.inputFileToStringList(file).get(0).toCharArray();
+        packet = new LinkedList<>();
+        message = new LinkedList<>();
+        startOfPacket = 0;
+        startOfMessage = 0;
     }
 
     private int runFirstPart() {
-        for (String rucksack : input) {
+        for (char marker : dataStreamBuffer) {
+            if (packet.size() == 4) {
+                packet.poll();
+            }
 
+            packet.add(marker);
+            startOfPacket++;
+            if (isAValidPacket(packet)) {
+                break;
+            }
         }
 
-        return sumOfPriorities;
+        return startOfPacket;
     }
 
     private int runSecondPart() {
-        for (int i = 0; i < input.size() - 2; i+=3) {
+        for (char marker : dataStreamBuffer) {
+            if (message.size() == 14) {
+                message.poll();
+            }
 
+            message.add(marker);
+            startOfMessage++;
+            if (isAValidMessage(message)) {
+                break;
+            }
         }
 
-        return sumOfPriorities;
+        return startOfMessage;
+    }
+
+    private boolean isAValidPacket(Queue<Character> packet) {
+        return packet.equals(packet.stream().distinct().toList()) && packet.size() == 4;
+    }
+
+    private boolean isAValidMessage(Queue<Character> message) {
+        return message.equals(message.stream().distinct().toList()) && message.size() == 14;
     }
 
     public static void main(String[] args) {
-        Day6 day6 = new Day6(new File("/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/src/main/resources/Day6.txt"));
+        Day6 day6 = new Day6(new File( BASE_RESOURCES_PATH + "Day6.txt"));
         System.out.println(day6.runFirstPart());
-        day6.initialize();
         System.out.println(day6.runSecondPart());
     }
 }

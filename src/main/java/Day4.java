@@ -4,6 +4,8 @@ import utils.StaticUtils;
 import java.io.File;
 import java.util.List;
 
+import static utils.StaticUtils.BASE_RESOURCES_PATH;
+
 public class Day4 {
     private final List<String> input;
     private int pairsFullyContained;
@@ -35,7 +37,7 @@ public class Day4 {
     }
 
     public static void main(String[] args) {
-        Day4 day4 = new Day4(new File("/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/src/main/resources/Day4.txt"));
+        Day4 day4 = new Day4(new File(BASE_RESOURCES_PATH + "Day4.txt"));
         day4.run();
         System.out.println(day4.pairsFullyContained);
         System.out.println(day4.totalOverlaps);

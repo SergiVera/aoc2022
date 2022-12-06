@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static utils.StaticUtils.BASE_RESOURCES_PATH;
+
 public class Day1 {
 
     private final List<String> input;
@@ -43,7 +45,7 @@ public class Day1 {
 
 
     public static void main(String[] args) {
-        Day1 day1 = new Day1(new File("/Users/mangelesmartinezmoreno/Library/Mobile Documents/com~apple~CloudDocs/Otros/Programming/src/main/resources/Day1.txt"));
+        Day1 day1 = new Day1(new File(BASE_RESOURCES_PATH + "Day1.txt"));
         System.out.println(day1.runFirstPart());
         System.out.println(day1.runSecondPart());
     }
